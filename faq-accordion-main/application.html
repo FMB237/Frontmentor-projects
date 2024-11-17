@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faq Accordion</title>
+</head>
+<body>
+    <style>
+        body{
+            padding: auto;
+            height: 100vh;
+            margin: 0;
+            background-color: rgb(251, 230, 251);
+        }
+        .wrapper{
+            height: 15rem;
+            width: 100%;
+            border: none;
+            background: url("assets/images/background-pattern-desktop.svg");
+            background-size: cover;
+        }
+        .container{
+            display: flex;
+       height: 45rem;
+       width: 35rem;
+       border: none;
+       border-radius: 1rem;
+       position: absolute;
+       left: 50%; top: 50%;
+       transform: translate(-50%,-50%);
+       background-color: white;
+         box-shadow:  2px 2px 2px rgba(0, 0, 0, 0.4);
+        }
+        #star{
+            position: absolute;
+            top: 7.5%; left: 10%;
+          scale: 1.2;
+          transition: 0.5s all ease-in-out;
+          cursor: pointer;
+        }
+        #star:hover{
+        scale: 1.5;
+        }
+        h1{
+            font-size: 3.2rem;
+            position: absolute;
+            left: 20%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight:900;
+            letter-spacing: 1px;
+        }
+        .list1{
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 500;
+            margin-top: 25%;
+        color: rgb(51, 15, 51);
+        font-size: 1.2rem;
+        margin-left: -3%;
+        }
+        .list1 li{
+     transition: 0.5s all ease-in-out;
+     cursor: pointer;
+        }
+        .list1 li:hover{
+            font-size: 1.25rem;
+            color: purple;
+        }
+        #p1,#p2,#p3,#p4{
+            font-size: 0.9rem;
+            color: gray;
+           
+        }
+        .plus{
+            position: absolute;
+            left: 90%;
+            transition: 0.5s all ease-in-out;
+        }
+        .plus:hover{
+            scale: 1.4;
+            filter: brightness(1.2);
+        }
+    </style>
+    <div class="wrapper"></div>
+    <div class="container">
+      <img src="assets/images/icon-star.svg" alt="" id="star">
+      <h1>FAQs</h1>
+      <ul class="list1">
+        <li>What is Frontend Mentor,and how does it helps me ?
+            <img src="assets/images/icon-plus.svg" alt="" id="img1" class="plus">
+            <p id="p1">
+            Frontend Mentor offers realistic code challenges to help you develop improve your 
+            your Frontend coding skills with projects in HTML,CSS and JavaScript skills.it's suitable
+            for all levels and ideals for building your Portfolio 
+        </p></li>
+        <li>Is Frontend Mentor free?>
+            <img src="assets/images/icon-plus.svg" alt="" id="img2" class="plus">
+            <p id="p2">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio unde, incidunt animi distinctio neque rerum modi laboriosam doloremque voluptatibus quasi numquam et consectetur nam repudiandae, error assumenda, possimus quaerat id?
+            </p>
+        </li>
+        <li>Can i Use Frontend Mentor projects in my Portfolio? 
+            <img src="assets/images/icon-plus.svg" alt="" id="img3" class="plus">
+            <p id="p3">
+         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur impedit voluptatem sed quibusdam, sit porro delectus doloremque labore modi? Nam suscipit pariatur a et enim non expedita dignissimos placeat. Veniam.
+            </p>
+        </li>
+        <li>How can get help if i'm stuck on a challenge?
+            <img src="assets/images/icon-plus.svg" alt="" id="img4" class="plus">
+            <p id="p4">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel ducimus consequuntur rerum, error unde ab laboriosam a blanditiis totam vero omnis quas accusantium amet! Iusto at praesentium consequuntur soluta ut.
+            </p>
+        </li>
+      </ul>
+    </div>
+<script>
+    const Plus1=document.getElementById("img1");
+    const Paragraph1=document.getElementById("p1");
+    Plus1.addEventListener("click",RemoveParagraph1);
+    function RemoveParagraph1(e){
+        e.target.Plus1;
+         Plus1.setAttribute("src","assets/images/icon-minus.svg");
+         Paragraph1.style.display="none";
+    }
+    Plus1.addEventListener("dblclick",DisplayParagraph1);
+    function DisplayParagraph1(r){
+      r.target.Plus1;
+      Plus1.setAttribute("src","assets/images/icon-plus.svg");
+      Paragraph1.style.display="block"
+    }       
+    //For Paragraph 2
+    const Plus2=document.getElementById("img2");
+    const Paragraph2=document.getElementById("p2");
+    
+    Plus2.addEventListener("click",RemoveParagraph2);
+    function RemoveParagraph2(a){
+        a.target.Plus2;
+         Plus2.setAttribute("src","assets/images/icon-minus.svg");
+         Paragraph2.style.display="none";
+    }
+    Plus2.addEventListener("dblclick",DisplayParagraph2);
+    function DisplayParagraph2(b){
+      b.target.Plus2;
+      Plus2.setAttribute("src","assets/images/icon-plus.svg");
+      Paragraph2.style.display="block"
+    }       
+
+    //For paragraph 3
+    const Plus3=document.getElementById("img3");
+    const Paragraph3=document.getElementById("p3");
+    
+    Plus3.addEventListener("click",RemoveParagraph3);
+    function RemoveParagraph3(c){
+        c.target.Plus3;
+         Plus3.setAttribute("src","assets/images/icon-minus.svg");
+         Paragraph3.style.display="none";
+    }
+    Plus3.addEventListener("dblclick",DisplayParagraph3);
+    function DisplayParagraph3(d){
+      d.target.Plus3;
+      Plus3.setAttribute("src","assets/images/icon-plus.svg");
+      Paragraph3.style.display="block"
+    }
+    //For paragraph 4
+    const Plus4=document.getElementById("img4");
+    const Paragraph4=document.getElementById("p4");
+    
+    Plus4.addEventListener("click",RemoveParagraph4);
+    function RemoveParagraph4(f){
+        f.target.Plus3;
+         Plus4.setAttribute("src","assets/images/icon-minus.svg");
+         Paragraph4.style.display="none";
+    }
+    Plus4.addEventListener("dblclick",DisplayParagraph4);
+    function DisplayParagraph4(g){
+      g.target.Plus4;
+      Plus4.setAttribute("src","assets/images/icon-plus.svg");
+      Paragraph4.style.display="block";
+    }
+</script>
+   
+   
+</body>
+</html>
