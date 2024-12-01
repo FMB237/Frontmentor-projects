@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+</head>
+<body>
+    <style>
+        body{
+            height: 100vh;
+            padding: auto;
+            margin: auto;
+            background-color: rgb(212, 228, 243);
+        }
+        #Form{
+            position: absolute;
+            left: 50%; top: 50%;
+            transform: translate(-50%,-50%);
+            height: clamp(45rem,50%,40rem);
+            width: clamp(48rem,50%,40rem);
+            border: none;
+            border-radius: 1rem;
+            box-shadow:  0 0 5px 5px  rgb(0,0,0,0.1);
+            background-color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .Heading{
+            position: absolute;
+            left: 10%; top: 0%;
+        }
+        .input-box{
+            border: none;
+            width: 20rem;
+            height: 5.5rem;
+            position: absolute;
+            left: 5%; top: 15%;
+        }
+       .label{
+        font-weight: bold;
+        font-size: 1.2rem;
+        position: relative;
+        top: -5%;
+       }
+       .input1{
+        position: relative;
+        top: 7.5%;
+       }
+       input[type="text"],[type="email"]{
+        width: 100%;
+        height: 3rem;
+        border-radius: 0.5rem;
+        border: 1px solid dodgerblue;
+        font-size: 1.5rem;
+        text-indent: 1rem;
+        outline: none;
+       }
+       .input-box2{
+        border: none;
+        width: 20rem;
+        height: 5.5rem;
+        position: absolute;
+        left: 52.5%; top: 15%;
+       }
+       .input-box3{
+        position: absolute;
+        border:none ;
+        top: 32.5%;
+        height: 6rem;
+        width: 40rem;
+        left: 5%;
+       }
+       .input-box4{
+        border: none;
+        position: absolute;
+        top: 50%; left: 5%;
+        height: 7rem;
+        width: 45rem;
+       }
+       .Check1{
+        border: 1px solid dodgerblue;
+        width: 15rem;
+        position: absolute;
+        left: 5%;
+        height: 2.2rem;
+        border-radius: 0.5rem;
+        top: 25%;
+        padding: 0.5rem;
+       }
+       .Check2{
+        border: 1px solid dodgerblue;
+        width: 15rem;
+        position: absolute;
+        left: 50%;
+        height: 2.2rem;
+        border-radius: 0.5rem;
+        top: 25%;
+        padding: 0.5rem;
+       }
+       .input-box5{
+        border: none;
+        position: absolute;
+        top: 67.5%; left: 5%;
+        height: 7rem;
+        width: 45rem;
+       }
+       #Message{
+        width: 95%;
+        height: 5rem;
+       }
+       .input-box6{
+        border: none;
+        position: absolute;
+        top: 85%; left: 5%;
+        height: 2rem;
+        width: 30rem;
+        font-weight: 500;
+       }
+       #Button{
+        position: absolute;
+        top: 90%; left: 15%;
+        padding: 0.8rem;
+        width: 35rem;
+        font-size: 2rem;
+        text-align: center;
+        font-weight: bold;
+        height: 3.5rem;
+        border-radius: 1rem;
+        border: none;
+        background-color: dodgerblue;
+        color: white;
+        cursor: pointer;
+        transition: 0.5s all ease-in-out;
+        overflow: hidden;
+        z-index: 1;
+       }
+       #Button::after{
+        content: "@";
+        position: absolute;
+        height: 1rem;
+        color: red;
+        width: 1rem;
+        border: none;
+        border-radius: 50%;
+        left: 33%; top: 20%;
+        transition: 0.5s all ease-in-out;
+        z-index: -1;
+        opacity: 0.1;
+       }
+       #Button:hover{
+        scale: 1.1;
+        filter: brightness(1.2);
+       }
+       #Button:hover::after{
+        height: 100%;
+        width: 100%;
+        scale: 100;
+        opacity: 1;
+       }
+       /* JavaScript Created errors*/
+       #error1{
+        color: red;
+        position: absolute;
+        font-weight: bold;
+        left: 5%; top: 27.5%;
+        display: none;
+        font-style: italic;
+       }
+       .error2{
+        color: red;
+        position: absolute;
+        font-weight: bold;
+        left: 55%; top: 27.5%;
+        display: none;
+        font-style: italic;
+       }
+       .error3{
+        color: red;
+        position: absolute;
+        font-weight: bold;
+        left: 5%; top: 45%;
+        display: none;
+        font-style: italic;
+       }
+       .error4{
+        color: red;
+        position: absolute;
+        font-weight: bold;
+        left: 50%; top: 82.5%;
+        display: none;
+        font-style: italic;
+       }
+       .error5{
+        color: red;
+        position: absolute;
+        font-weight: bold;
+        left: 10%; top: 62.5%;
+        display: none;
+        font-style: italic;
+       }
+       #Div{
+        height: 5rem;
+        width: 25rem;
+        border: none;
+        position: absolute;
+        left: 35%; top: 0.5rem;
+        border-radius: 1rem;
+        background-color: rgb(138, 156, 117);
+        display: none;
+       }
+       img{
+        position: absolute;
+        left: 10%;top: 10%;
+        scale: 1.2;
+       }
+       .msg{
+        color: white;
+        position: absolute;
+        font-weight: bold;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        top: -10%; left: 17.5%;
+       }
+       .text{
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        position: relative;
+        top: 25%; 
+        text-align: center;
+       }
+    </style>
+    <form action="" id="Form">
+     <h1 class="Heading">Contact Us</h1>
+    <div class="input-box">
+        <label for="First-Name" class="label">First Name:</label><br>
+        <input type="text" id="First-Name" class="input1" required>
+    </div>
+    <div class="input-box2">
+        <label for="Last-Name" class="label">Last Name:</label>
+        <input type="text" id="Last-name" class="input1" required>
+    </div>
+    <div class="input-box3">
+        <label for="Email" class="label">Email Address:</label>
+        <input type="email" class="input1" id="Email" required>
+    </div>
+    <div class="input-box4">
+   <label for="Query type" class="label">Query type:</label>
+   <div class="Check1">
+    <input type="radio" id="Radio-1">
+    <label for="General Enquiry" class="label"> General Enquiry</label>
+   </div>
+   <div class="Check2">
+    <input type="radio" name="input" id="Radio-2">
+    <label for="Support Request" class="label">Support Request</label>
+   </div>
+    </div>
+    <div class="input-box5">
+        <label for="Message" class="label">Message:</label>
+        <input type="text" name="input" id="Message" minlength="0" maxlength="50">
+    </div>
+    <div class="input-box6">
+     <input type="radio" id="Radio-3" required>
+     <label for="radio" class=""> I consent to being contacted by the team</label>
+    </div>
+    <button type="submit" id="Button"><span>Submit</span></button>
+   
+    </form>
+    <script>
+        const Formulate=document.getElementById("Form");
+        const FirstName=document.getElementById('First-Name');
+        const LastName=document.getElementById('Last-name');
+        const Email=document.getElementById('Email');
+        const CheckBox1=document.getElementById('Radio-1');
+        const CheckBox2=document.getElementById('Radio-2');
+       const Message=document.getElementById('Message');
+       const CheckBox3=document.getElementById('Radio-3');
+       const Div1=document.querySelector('.Check1');
+       const Div2=document.querySelector('.Check2');
+       const Submit=document.getElementById('Button');
+      const InputBOX4=document.querySelector(".input-box4");
+      const BodyEl=document.querySelector("body");
+      console.log(BodyEl);
+       //Let set color for our inputs
+       FirstName.addEventListener("input",DisplayName1);
+       function DisplayName1(){
+        FirstName.style.borderColor=" dodgerblue";
+         FirstName.style.border="1px solid dodgerblue";
+        let FirstName_value=FirstName.value;
+        
+        if(FirstName_value.length>10){
+            FirstName.style.border="2px solid red";
+            Error1.style.display="block";
+        }
+        else if(FirstName_value.length<10  && FirstName_value.length>1){
+             FirstName.style.border="2px solid green"
+             Error1.style.display="none";
+        }
+       }
+       //For LastName inputs
+       LastName.addEventListener("input",DisplayName2);
+       function DisplayName2(){
+         LastName.style.border="1px solid dodgerblue";
+         LastName_value=LastName.value;
+         if(LastName_value.length>10){
+            LastName.style.border="2px solid red";
+            Error2.style.display="block"
+         }
+         else if(LastName_value.length<10 && LastName_value.length>1){
+            LastName.style.border="2px solid green";
+            Error2.style.display="none";
+            }
+       }
+       //For Email inputs
+       Email.addEventListener("input",DisplayEmail);
+       function DisplayEmail(){
+         Email.style.border="1px solid dodgerblue";
+         Email_value=Email.value;
+          if(!Email_value.includes("@")){
+            Email.style.border="2px solid red";
+            Error3.style.display="block";
+          }
+          else if( Email_value.length>1  &&  Email_value.includes("@") ){
+            Email.style.border="2px solid green";
+            Error3.style.display="none";
+          }
+       }
+
+ //Message
+ Message.addEventListener("input",DisplayMsg);
+    function DisplayMsg(){
+        Message.style.border="1px solid dodgerblue";
+        Message_value=Message.value;
+       if(Message_value.length==0){
+        Message.style.border="2px solid red";
+        Error4.style.display="block";
+       }
+       else if(Message_value.length>1){
+        Message.style.border="2px solid green";
+        Error4.style.display="none";
+       }
+    }
+ 
+    const Error1=document.createElement("span");
+    Formulate.appendChild(Error1);
+    Error1.innerHTML="Too many characters";
+    Error1.id="error1";
+ 
+const Error2=document.createElement('span');
+Formulate.appendChild(Error2);
+Error2.innerHTML="Too many characters";
+Error2.classList.add("error2");
+
+  const Error3=document.createElement("span");
+  Formulate.appendChild(Error3);
+  Error3.innerHTML="Please enter a valid email address";
+  Error3.classList.add("error3");
+  
+
+  const Error4=document.createElement('span');
+  Formulate.appendChild(Error4);
+  Error4.innerHTML="This field is required";
+  Error4.classList.add("error4");
+
+ InputBOX4.addEventListener("click",DisplayRadio);
+ function DisplayRadio(){
+    if(!CheckBox1.click || !CheckBox2.click){
+        Div1.style.border="2px solid red";
+        Div2.style.border="2px solid red"
+        Error5.style.display="block";
+    }
+    else if(CheckBox1.click || CheckBox2.click){
+        Div1.style.border="2px solid green";
+      
+    }
+ }
+ const Error5=document.createElement('span');
+ Formulate.appendChild(Error5);
+ Error5.innerHTML="Please select a query type";
+ Error5.classList.add('error5');
+
+
+ const ValidationMsg=document.createElement("div");
+ BodyEl.appendChild(ValidationMsg);
+ ValidationMsg.id="Div";
+ Div.innerHTML=` <img src="assets/images/icon-success-check.svg" alt="" class="img">
+       <p class=msg>Message sent!</p>
+       <p class=text>Thanks for completing the form.We'll be touch soon</p>`
+
+
+      
+       
+ 
+       </script>
+</body>
+</html>
